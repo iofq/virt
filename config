@@ -1,0 +1,10 @@
+#!/bin/bash
+#defaults
+VM_RAM=2048 #in Mb
+VM_CPU=1
+IMAGEDIR="$PWD/images" #where to store base images for cloning
+DATADIR="$PWD/disks" #where to store disk images
+VM_IMAGE="$IMAGEDIR/base.qcow2" #default image to clone when none is specified
+VM_NETWORK="bridge=br0,model=virtio" #args for --network= command, defaults to virbr0
+DEBUG=0 #set to one for virt-install verbose output
+

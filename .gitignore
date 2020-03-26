@@ -1,0 +1,7 @@
+.git/
+meta-data
+.install.log
+.nfs*
+images/*
+disks/*
+!images/.gitkeep
