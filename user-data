@@ -4,7 +4,8 @@ users:
     groups: sudo
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh-authorized-keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCv5n53+zF0hEpQ72h1rAqqg2VeQZ3Q0sXfcRAiJh1HK9ePMmOP1ACANwH3/u+CWjKOoJQ+rstph1eYn1IRrCSCJlqCMmJ7KMX5Lyg58QqxiN6/YAMaRiBdi4EM4BV7h2f+1iOMTFH5wZXFmdh8hWlT+Sm3MPwvDgs/cfSP+/hCUKEzEUiMEc5vJNVipI16tLl9aVN4/rtVK44SwQbSPTd/Rdw6wLV6X9LgdvY6Uyw6YFdEbQN2KyRlfcTPxY807tXF6goQ0rqC0TXgbvaT7BjXvOJZbAiWvko7Uh0u8jIYLQethPdGWsTWBTUmLT5oFE0SsXtawLj0+NunXq4ImVl/brtTogCzA0ezFCMYQA2wGe2ETDdT7qmmuyC2AJpln5dpsr1iZfpHSNq+R7wftqstD+OC7vJ3L1DasU1MLRnBWJJZNt6SMrRxxdmG1qQOv1qb3aEMbmPWhbYcC4hmDWNfy31VzfZDGYSTyKJc1TRalVrNZLNkwdfnoxXfiygHoNE= e@g1
+      - ssh-rsa <pubkey here> 
+
+#disable cloud-init on first boot
 runcmd:
   - touch /etc/cloud/cloud-init.disabled
-
