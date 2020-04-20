@@ -1,5 +1,6 @@
 .git/
 meta-data
+config
 .install.log
 .nfs*
 images/*
