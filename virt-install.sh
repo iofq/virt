@@ -25,8 +25,8 @@ usage() {
 }
 
 destroy() {
-  virsh destroy $VM_HOSTNAME && \
-  virsh undefine $VM_HOSTNAME;
+  virsh destroy $VM_HOSTNAME
+  virsh undefine $VM_HOSTNAME
 }
 
 delete() {
@@ -60,7 +60,7 @@ do
   esac
 done
 
-case $DELETE in
+case $VM_DELETE in
     0);;
     1) destroy && exit 0;;
     2) destroy && delete && exit 0;;
