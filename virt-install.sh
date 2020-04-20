@@ -90,6 +90,7 @@ genisoimage -output $IMAGEDIR/cloud-init.iso -volid cidata -J -R user-data meta-
 echo -e "${YELLOW}Generated cloud-init.iso"
 
 echo -e "${YELLOW}Creating qcow2 image... $DATADIR/$VM_HOSTNAME.qcow2 \n"
+
 if [ -f $DATADIR/$VM_HOSTNAME.qcow2 ]; then
 	while true; do
     echo -e "${RED}Image $DATADIR/$VM_HOSTNAME.qcow2 already exists."
@@ -98,8 +99,7 @@ if [ -f $DATADIR/$VM_HOSTNAME.qcow2 ]; then
 			case $yn in
 					yes|y) 
             echo -e "$GREEN"
-            sudo ./virt-destroy.sh $VM_HOSTNAME;
-            rm $DATADIR/$VM_HOSTNAME.qcow2;
+            destroy && delete;
             break;;
           *) break;;
 			esac
