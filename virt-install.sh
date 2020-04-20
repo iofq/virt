@@ -61,7 +61,7 @@ do
 done
 
 #expand VM_IMAGE path
-$VM_IMAGE=$(realpath $VM_IMAGE)
+VM_IMAGE=$(realpath $VM_IMAGE)
 
 case $VM_DELETE in
     0);;
