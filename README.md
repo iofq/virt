@@ -17,9 +17,13 @@ This project was created to streamline creating VMs across my local hardware wit
 
 `-i IMAGE` (optional) .qcow2 image to clone. If left out, `images/base.qcow2` will be tried.
 
-`-r RAM` - (optional) Ram in MB to be allocated to the machine
+`-m RAM` - (optional) Ram in MB to be allocated to the machine
 
 `-c CPU` - (optional) Virtual CPUs to be allocated to the machine
+
+`-d` - delete and undefine Virtual Machine, keeping the disk file.
+
+`-D` - delete and undefine Virtual Machine, also deleting disk file.
 
 ## Config:
 Configuration can be made by editing the `config` file. The defaults are set by the script and any changes will override them.

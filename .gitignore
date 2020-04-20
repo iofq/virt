@@ -5,3 +5,4 @@ meta-data
 images/*
 disks/*
 !images/.gitkeep
+!disks/.gitkeep
