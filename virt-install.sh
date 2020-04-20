@@ -107,7 +107,7 @@ if [ -f $DATADIR/$VM_HOSTNAME.qcow2 ]; then
 fi
 echo -e "$RESET"
 
-sudo rsync -azh --progress $VM_IMAGE $DATADIR/$VM_HOSTNAME.qcow2 && \
+sudo qemu-img create -f qcow2 -F qcow2 -b $VM_IMAGE $DATADIR/$VM_HOSTNAME.qcow2 && \
   sudo chown qemu:qemu $DATADIR/$VM_HOSTNAME.qcow2 || exit 1
 
 echo -e "${YELLOW}Provisioning host...$RESET"
