@@ -7,3 +7,5 @@ images/*
 disks/*
 !images/.gitkeep
 !disks/.gitkeep
+k3os/base/
+k3os/src/
