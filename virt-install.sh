@@ -45,10 +45,12 @@ cat << EOF > $CONFIG
 EOF
 }
 
-
-CONFIG="$XDG_CONFIG_HOME/virt-install.conf"
+# Defaults
+CONFIG="/etc/virt-install.conf"
 DEBUG=0
-while getopts h:f:u:i:m:c:s:dD option
+VM_DELETE=0
+
+while getopts h:f:u:i:m:c:s:dDv option
 do
   case "${option}"
     in
@@ -95,18 +97,18 @@ esac
 
 METADATA_FILE="/tmp/virt-metadata-$(date)"
 
-echo "local-hostname: $VM_HOSTNAME" > $METADATA_FILE
-echo "instance-id: iid-$RANDOM-$VM_HOSTNAME" >> $METADATA_FILE
+echo "local-hostname: $VM_HOSTNAME" > "$METADATA_FILE"
+echo "instance-id: iid-$RANDOM-$VM_HOSTNAME" >> "$METADATA_FILE"
 
 while read line; do
   echo "- $line"
-done < $METADATA_FILE
+done < "$METADATA_FILE"
 
-[[ ! -f $USERDATA ]] && \
+[[ -n $USERDATA ]] && [[ ! -f $USERDATA ]] && \
   echo -e "$RED ERROR: can't find specified user-data file ${USERDATA}.$RESET" && exit 1
 [[ ! -f $METADATA_FILE ]] && \
   echo -e "$RED ERROR: Can't find meta-data file.$RESET" && exit 1
-genisoimage -output $IMAGEDIR/.$VM_HOSTNAME-cloud-init.iso -volid cidata -J -R $USERDATA $METADATA_FILE && rm $METADATA_FILE
+genisoimage -output "$IMAGEDIR/.$VM_HOSTNAME-cloud-init.iso" -volid cidata -J -R "$USERDATA" "$METADATA_FILE" && rm "$METADATA_FILE"
 
 echo -e "${YELLOW}Generated cloud-init.iso"
 

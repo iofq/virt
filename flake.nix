@@ -26,14 +26,14 @@
             patchShebangs $out/bin/iofq-virt
             wrapProgram $out/bin/iofq-virt --set PATH '${lib.makeBinPath [
                 cdrkit
+                coreutils
                 libguestfs
                 libvirt
+                qemu-utils
                 sudo
-                coreutils
               ]}'
           ";
         };
-
       };
 
       packages = forAllSystems (system:
