@@ -130,7 +130,7 @@ fi
 echo -e "$RESET"
 
 qemu-img create -f qcow2 -F qcow2 -b "$IMAGEDIR/$VM_IMAGE" "$DATADIR/$VM_HOSTNAME.qcow2" $VM_DISK_SIZE && \
-  chown qemu:qemu $DATADIR/$VM_HOSTNAME.qcow2 || exit 1
+  chown qemu-libvirtd:qemu-libvirtd $DATADIR/$VM_HOSTNAME.qcow2 || exit 1
 
 echo -e "${YELLOW}Provisioning host...$RESET"
 virt-install \
