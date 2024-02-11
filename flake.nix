@@ -31,6 +31,7 @@
                 libvirt
                 qemu-utils
                 sudo
+                virt-manager
               ]}'
           ";
         };
