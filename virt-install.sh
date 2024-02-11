@@ -82,9 +82,6 @@ else
   source $CONFIG
 fi
 
-#expand VM_IMAGE path
-VM_IMAGE=$(realpath $VM_IMAGE)
-
 case $VM_DELETE in
     0);;
     1) destroy && exit 0;;
@@ -132,7 +129,7 @@ if [ -f $DATADIR/$VM_HOSTNAME.qcow2 ]; then
 fi
 echo -e "$RESET"
 
-qemu-img create -f qcow2 -F qcow2 -b $VM_IMAGE $DATADIR/$VM_HOSTNAME.qcow2 $VM_DISK_SIZE && \
+qemu-img create -f qcow2 -F qcow2 -b "$IMAGEDIR/$VM_IMAGE" "$DATADIR/$VM_HOSTNAME.qcow2" $VM_DISK_SIZE && \
   chown qemu:qemu $DATADIR/$VM_HOSTNAME.qcow2 || exit 1
 
 echo -e "${YELLOW}Provisioning host...$RESET"
