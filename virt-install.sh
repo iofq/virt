@@ -69,17 +69,17 @@ do
   esac
 done
 
-if (( $DEBUG == 1 )); then
-  DEBUG="--debug"
-else
-  DEBUG=""
-fi
-
 if [[ ! -f $CONFIG ]]; then
   echo "config file not found. creating defaults at ${CONFIG}..."
   mkConf
 else
   source $CONFIG
+fi
+
+if (( $DEBUG == 1 )); then
+  DEBUG="--debug"
+else
+  DEBUG=""
 fi
 
 case $VM_DELETE in
