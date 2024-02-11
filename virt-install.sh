@@ -93,7 +93,9 @@ case $VM_DELETE in
 esac
 
 [ ! -d "$DATADIR" ] && \
-  mkdir -p $DATADIR
+  mkdir -p "$DATADIR"
+[ ! -d "$IMAGEDIR" ] && \
+  mkdir -p "$IMAGEDIR"
 
 METADATA_FILE="/tmp/virt-metadata-$(date)"
 
